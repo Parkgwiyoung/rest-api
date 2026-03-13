@@ -1,6 +1,5 @@
 package com.back.domain.post.comment.controller;
 
-import com.back.domain.post.comment.dto.CommentDto;
 import com.back.domain.post.comment.entity.Comment;
 import com.back.domain.post.post.entity.Post;
 import com.back.domain.post.post.service.PostService;
@@ -52,19 +51,6 @@ public class CommentController {
         return "comment_modify";
     }
 
-
-    record CommentWriteReqBody(
-            @NotBlank(message = "02-content-내용은 필수입니다.")
-            @Size(min = 2, max = 100, message = "04-content-내용은 2자 이상 100자 이하로 입력해주세요.")
-            String content
-    ) {
-    }
-
-    record CommentWriteResBody(
-            CommentDto commenttDto,
-            long postsCount
-    ) {
-    }
     record ModifyRequestForm(
             @NotBlank(message = "01-content-댓글 내용은 필수입니다.")
             @Size(min = 2, max = 100, message = "02-content-댓글 내용은 2자 이상 100자 이하로 입력해주세요.")
